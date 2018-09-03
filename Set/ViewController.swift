@@ -17,17 +17,22 @@ class ViewController: UIViewController {
     @IBAction func selectedCard(_ sender: UIButton) {
     
         if let cardSelected = cardsDisplayed.index(of: sender){
-            let button = cardsDisplayed[cardSelected]
+            let card = cardsDisplayed[cardSelected]
             
-            if button.isSelected == true{
-                button.backgroundColor = #colorLiteral(red: 0.7764705882, green: 0.7764705882, blue: 0.7764705882, alpha: 1)}
-            else if button.isSelected == false {
-                button.backgroundColor = #colorLiteral(red: 0.8806887658, green: 0.7427777225, blue: 0.9318884835, alpha: 1)}
-            button.isSelected = !button.isSelected
+            if card.isSelected == true{
+                card.layer.borderWidth = 0
+                card.backgroundColor = #colorLiteral(red: 0.7764705882, green: 0.7764705882, blue: 0.7764705882, alpha: 1)}
+            else if card.isSelected == false {
+                
+                card.layer.borderWidth = 3
+                card.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)}
+            
+            card.isSelected = !card.isSelected
         }
         
     }
-    func updateCards() {
+    func updateCards()-> [UIButton] {
+        var deckOfCards: [UIButton] = []
         for index in cardsDisplayed.indices {
             let cardDeck = deck.draw()
             let button: UIButton = cardsDisplayed[index]
@@ -43,13 +48,16 @@ class ViewController: UIViewController {
             }
             
             let atributes: [ NSAttributedStringKey : Any] = [NSAttributedStringKey.strokeColor : (cardDeck?.color.value)!,.strokeWidth : (cardDeck?.fill.value)! ,.foregroundColor : (cardDeck?.color.value)!.withAlphaComponent(CGFloat((cardDeck?.fill.rawValue)!))]
+            
             button.layer.cornerRadius = 8.0
             
             let atributedTitle = NSAttributedString(string: title, attributes: atributes)
             button.setAttributedTitle(atributedTitle, for: .normal)
             button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-
+            
+            deckOfCards.append(button)
         }
+        return deckOfCards
     }
 
     func cardSelected() {
@@ -62,6 +70,6 @@ class ViewController: UIViewController {
        updateCards()
         print(deck.cards.count)
         
-        }
+    }
 }
 
