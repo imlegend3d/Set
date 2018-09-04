@@ -31,8 +31,10 @@ class ViewController: UIViewController {
         }
         
     }
-    func updateCards()-> [UIButton] {
-        var deckOfCards: [UIButton] = []
+    func updateCards()-> Deck {
+        var deckOfCards: [Card] = []
+        var newDeck = Deck()
+        
         for index in cardsDisplayed.indices {
             let cardDeck = deck.draw()
             let button: UIButton = cardsDisplayed[index]
@@ -55,9 +57,13 @@ class ViewController: UIViewController {
             button.setAttributedTitle(atributedTitle, for: .normal)
             button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             
-            deckOfCards.append(button)
+            deckOfCards.append(cardDeck!)
+           
+            newDeck.cards = deckOfCards
         }
-        return deckOfCards
+        
+        return newDeck
+        
     }
 
     func cardSelected() {
