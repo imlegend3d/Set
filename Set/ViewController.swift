@@ -15,8 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet var cardsDisplayed: [UIButton]!
     
     @IBAction func selectedCard(_ sender: UIButton) {
+        selectCard(Sender: sender)
+    }
     
-        if let cardSelected = cardsDisplayed.index(of: sender){
+    func selectCard (Sender: UIButton) {
+        if let cardSelected = cardsDisplayed.index(of: Sender){
             let card = cardsDisplayed[cardSelected]
             
             if card.isSelected == true{
@@ -29,12 +32,9 @@ class ViewController: UIViewController {
             
             card.isSelected = !card.isSelected
         }
-        
     }
-    func updateCards()-> Deck {
-        var deckOfCards: [Card] = []
-        var newDeck = Deck()
-        
+    
+    func updateCards(){
         for index in cardsDisplayed.indices {
             let cardDeck = deck.draw()
             let button: UIButton = cardsDisplayed[index]
@@ -50,22 +50,16 @@ class ViewController: UIViewController {
             }
             
             let atributes: [ NSAttributedStringKey : Any] = [NSAttributedStringKey.strokeColor : (cardDeck?.color.value)!,.strokeWidth : (cardDeck?.fill.value)! ,.foregroundColor : (cardDeck?.color.value)!.withAlphaComponent(CGFloat((cardDeck?.fill.rawValue)!))]
-            
-            button.layer.cornerRadius = 8.0
+           
             
             let atributedTitle = NSAttributedString(string: title, attributes: atributes)
             button.setAttributedTitle(atributedTitle, for: .normal)
             button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            
-            deckOfCards.append(cardDeck!)
-           
-            newDeck.cards = deckOfCards
+            button.layer.cornerRadius = 8.0
         }
-        
-        return newDeck
-        
     }
-
+    
+    
     func cardSelected() {
         
     }
@@ -73,7 +67,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       updateCards()
+        updateCards()
         print(deck.cards.count)
         
     }
