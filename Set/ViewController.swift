@@ -10,12 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var deck = Deck()
+    static var deck = Deck()
+    
+    var cardNumber: [Int:Bool] = [:]
+    
+    var endIndex = 12
+    var newEndIndex: Int {
+        get {
+   
+            return endIndex + 3}
+    }
+    var atributedTitle = NSAttributedString(string: "")
     
     @IBOutlet var cardsDisplayed: [UIButton]!
+   
+    @IBOutlet weak var addCards: UIButton!
     
     @IBAction func selectedCard(_ sender: UIButton) {
         selectCard(Sender: sender)
+    }
+    
+    @IBAction func addingCards(_ sender: UIButton) {
+      addingCards()
     }
     
     func selectCard (Sender: UIButton) {
@@ -34,11 +50,51 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateCards(){
-        for index in cardsDisplayed.indices {
-            let cardDeck = deck.draw()
+    func setCards(){
+       
+//        for index in cardsDisplayed.indices {
+        for index in 0..<endIndex {
+            let cardDeck = ViewController.deck.draw()
             let button: UIButton = cardsDisplayed[index]
-            let title: String
+            button.isHidden = false
+            cardNumber[index] = true
+            cardDisplay(cardDeck: cardDeck)
+            buttonDisplay(button: button, atributedTitle: atributedTitle)
+        }
+        print("CardNumberIndex =\(cardNumber)")
+    }
+    func addMoreCards(){
+        
+        //        for index in cardsDisplayed.indices {
+        for index in endIndex..<newEndIndex {
+            let cardDeck = ViewController.deck.draw()
+            let button: UIButton = cardsDisplayed[index]
+            button.isHidden = false
+            cardNumber[index] = true
+            cardDisplay(cardDeck: cardDeck)
+            buttonDisplay(button: button, atributedTitle: atributedTitle)
+        }
+         print("AddMoreCardsIndex =\(cardNumber)")
+    }
+
+    func addingCards() {
+        if ViewController.deck.cards.count <= 4 {
+            print("out of cards")
+        }else{
+            if cardNumber.count < 22{
+                addMoreCards()
+                endIndex += 3
+                print(ViewController.deck.cards.count)
+            }else if cardNumber.count > 22 {
+                print("no space to put more cards")
+                
+                print(ViewController.deck.cards.count)
+            }
+        }
+    }
+    
+    func cardDisplay(cardDeck: Card?)->NSAttributedString {
+        let title: String
             if cardDeck?.numberOfItems.rawValue == 1 {
                 title = (cardDeck?.shape.rawValue)!
                 
@@ -52,12 +108,18 @@ class ViewController: UIViewController {
             let atributes: [ NSAttributedStringKey : Any] = [NSAttributedStringKey.strokeColor : (cardDeck?.color.value)!,.strokeWidth : (cardDeck?.fill.value)! ,.foregroundColor : (cardDeck?.color.value)!.withAlphaComponent(CGFloat((cardDeck?.fill.rawValue)!))]
            
             
-            let atributedTitle = NSAttributedString(string: title, attributes: atributes)
+        atributedTitle = NSAttributedString(string: title, attributes: atributes)
+        return atributedTitle
+    }
+    func buttonDisplay(button: UIButton, atributedTitle: NSAttributedString) {
+        
             button.setAttributedTitle(atributedTitle, for: .normal)
             button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             button.layer.cornerRadius = 8.0
+            button.isEnabled = true
+        
         }
-    }
+    
     
     
     func cardSelected() {
@@ -67,8 +129,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateCards()
-        print(deck.cards.count)
+        setCards()
+        print(ViewController.deck.cards.count)
+        
         
     }
 }

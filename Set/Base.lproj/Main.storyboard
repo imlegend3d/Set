@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -234,11 +235,29 @@
                                     <action selector="selectedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mgp-zb-dW0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2o-NK-Vcw">
+                                <rect key="frame" x="261" y="734" width="98" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P2o-NK-Vcw" secondAttribute="height" multiplier="49:16" id="DsE-2m-GK4"/>
+                                    <constraint firstAttribute="width" secondItem="P2o-NK-Vcw" secondAttribute="height" multiplier="49:16" id="iHb-hJ-HbQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="ADD CARDS"/>
+                                <connections>
+                                    <action selector="addingCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="geI-ug-oCa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.70599704060000001" green="1" blue="0.99967086520000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="P2o-NK-Vcw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="261" id="8z4-Qi-Ujb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P2o-NK-Vcw" secondAttribute="bottom" constant="12" id="I0f-3P-lh8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P2o-NK-Vcw" secondAttribute="trailing" constant="16" id="IJJ-nJ-fCx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addCards" destination="P2o-NK-Vcw" id="qjf-tM-byq"/>
                         <outletCollection property="cardsDisplayed" destination="Guk-rm-CUQ" collectionClass="NSMutableArray" id="0hi-dJ-kxJ"/>
                         <outletCollection property="cardsDisplayed" destination="ADf-fu-h3w" collectionClass="NSMutableArray" id="XH9-wz-po1"/>
                         <outletCollection property="cardsDisplayed" destination="1BE-b6-0fW" collectionClass="NSMutableArray" id="VEd-FP-QFl"/>
