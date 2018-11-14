@@ -56,7 +56,17 @@ class ViewController: UIViewController {
             }
             // make it so that there is a maximun of only 3 cards allowed for selection.
             else if cardsSelectedArray.count >= 3 {
-            // need to make so that if a 4th card is added to removed the prevoiuly selected from the array and at the same time to deselect the ccards from the UI and to add the new one and show the selection of the new one.
+                //checked if matched and if it is matched it removes the cards from the ui.
+                
+                let x = setGame(cardsSelectedArray)
+                for o in 0..<endIndex{
+                    if cardsDisplayed[o].isSelected == true && x == true {
+                        cardsDisplayed[o].setAttributedTitle(nil, for: .normal)
+                        print(" Cards that are selected are #:\(o)")
+                    }
+                }
+                // need to make so that if a 4th card is added to removed the prevoiuly selected from the array and at the same time to deselect the ccards from the UI and to add the new one and show the selection of the new one.
+                
                 cardsSelectedArray.removeAll()
                     for i in 0..<endIndex {
                         cardsDisplayed[i].isSelected = false
@@ -80,11 +90,21 @@ class ViewController: UIViewController {
                 card.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)}
         }
         print("Cards Added to Array by selecting the card\(cardsSelectedArray)")
+        
        return cardsSelectedArray
     }
     
+    func setGame(_ cardsToBeMatched: [Card])->Bool{
+        if cardsToBeMatched[0].shape == cardsToBeMatched[1].shape && cardsToBeMatched[0].shape == cardsToBeMatched[2].shape || cardsToBeMatched[0].shape != cardsToBeMatched[1].shape && cardsToBeMatched[0].shape != cardsToBeMatched[2].shape {
+            print("CARDS ARE A SHAPE MATCH")
+            return true
+        } else {
+            print("cards are not a match")
+            return false
+        }
+        
+    }
    
-    
     func getCardsArray(){
         
         for _ in 1...ViewController.deck.cards.count {
@@ -93,14 +113,6 @@ class ViewController: UIViewController {
         
         print("Starting deck: \(startingDeck.count)")
         
-    }
-    
-    
-    
-    func setGame(arrayCards: [Card])->Bool{
-        
-        
-        return false
     }
     
     func setCards(){
@@ -116,16 +128,42 @@ class ViewController: UIViewController {
     }
 
     func addMoreCards(){
+        for i in 0..<endIndex {
+             if cardsDisplayed[i].attributedTitle(for: .normal) != nil{
+                addCardsIfNoEmptySpaces()
+                break
+             } else {
+                addCardsToEmptySpaces()
+            }
+        }
+    }
+    
+    func addCardsIfNoEmptySpaces(){
         for index in endIndex..<newEndIndex {
             let card = startingDeck[index]
             let button: UIButton = cardsDisplayed[index]
-            button.isEnabled = true 
+            button.isEnabled = true
             button.isHidden = false
             cardNumber[index] = true
             cardDisplay(card: card)
             buttonDisplay(button: button, atributedTitle: atributedTitle)
+            }
+        print("AddMoreCardsIndex =\(cardNumber)")
         }
-         print("AddMoreCardsIndex =\(cardNumber)")
+
+    
+    func addCardsToEmptySpaces() {
+        for a in 0..<endIndex {
+            if cardsDisplayed[a].attributedTitle(for: .normal) == nil {
+                let card = startingDeck[a]
+                let button: UIButton = cardsDisplayed[a]
+                button.isEnabled = true
+                button.isHidden = false
+                cardNumber[a] = true
+                cardDisplay(card: card)
+                buttonDisplay(button: button, atributedTitle: atributedTitle)
+            }
+        }
     }
 
     func addingCards() {
@@ -168,10 +206,6 @@ class ViewController: UIViewController {
             button.layer.cornerRadius = 8.0
             button.isEnabled = true
         }
-    
-    func cardSelected() {
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
