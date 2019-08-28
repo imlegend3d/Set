@@ -92,7 +92,7 @@ class Set: CustomStringConvertible{
         guard isSet(cards: cards) else {return false}
         
         for card in cards {
-            if let index = playingCards.index(of: card) {
+            if let index = playingCards.firstIndex(of: card) {
                 let removedCard = playingCards.remove(at: index)
                 cardsRemoved.append(removedCard)
             }

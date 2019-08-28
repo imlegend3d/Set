@@ -45,10 +45,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWV-87-3Wt">
-                                <rect key="frame" x="169.66666666666663" y="670" width="75" height="48"/>
+                                <rect key="frame" x="157" y="670" width="100" height="48"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="JTp-d8-jYR"/>
+                                    <constraint firstAttribute="width" constant="100" id="PJq-4C-lwQ"/>
                                 </constraints>
                                 <state key="normal" title="New Game"/>
                                 <connections>
@@ -86,7 +87,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vcu-qD-1B2" customClass="CardButtons" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="241.66666666666674" y="0.0" width="72.333333333333343" height="85"/>
+                                                <rect key="frame" x="241.66666666666671" y="0.0" width="72.333333333333343" height="85"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -123,7 +124,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGo-g9-o7k" customClass="CardButtons" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="241.66666666666674" y="0.0" width="72.333333333333343" height="85"/>
+                                                <rect key="frame" x="241.66666666666671" y="0.0" width="72.333333333333343" height="85"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -160,7 +161,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsd-79-xd0" customClass="CardButtons" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="241.66666666666674" y="0.0" width="72.333333333333343" height="85"/>
+                                                <rect key="frame" x="241.66666666666671" y="0.0" width="72.333333333333343" height="85"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -197,7 +198,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="At9-pB-DL3" customClass="CardButtons" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="241.66666666666674" y="0.0" width="72.333333333333343" height="85"/>
+                                                <rect key="frame" x="241.66666666666671" y="0.0" width="72.333333333333343" height="85"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -234,7 +235,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqx-xY-V2f" customClass="CardButtons" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="241.66666666666674" y="0.0" width="72.333333333333343" height="85"/>
+                                                <rect key="frame" x="241.66666666666671" y="0.0" width="72.333333333333343" height="85"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -271,7 +272,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aac-KP-fo9" customClass="CardButtons" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="241.66666666666674" y="0.0" width="72.333333333333343" height="85"/>
+                                                <rect key="frame" x="241.66666666666671" y="0.0" width="72.333333333333343" height="85"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
