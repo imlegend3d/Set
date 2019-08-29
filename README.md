@@ -14,4 +14,7 @@ has exactly the same matching feature or else all have a different feature.
 If two cards match in one of the four features, but the third card does not, then the three cards are not a "set" 
 and the player is penalized instead of being able to collect.
 
-![](SetImages/SetGameImage1.png)
+![](Set/SetImages/SetGameImage2.png)
+![](Set/SetImages/SetGameImage1.png)
+![](Set/SetImages/SetGameImage3.png)
+![](Set/SetImages/SetGameImage4.png)
